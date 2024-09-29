@@ -19,7 +19,7 @@ function searchImages(container, query) {
                 const img = document.createElement('img');
                 img.src = image.urls.small;
                 container.appendChild(img);
-            })
+            });
         })
         .catch(error => {
             console.error('Error fetching photos:', error);
