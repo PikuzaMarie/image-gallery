@@ -1,16 +1,15 @@
-const fetch = require('node-fetch');
-require('dotenv').config();
+import fetch from 'node-fetch';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const accessKey = process.env.UNSPLASH_ACCESS_KEY;
 
-exports.handler = async function(event, context) {
-    const query = event.queryStringParameters.query;
-    const page = event.queryStringParameters.page || 1;
-    const perPage = event.queryStringParameters.per_page || 10;
-
-    const url = `https://api.unsplash.com/search/photos?query=${query}&page=${page}&per_page=${perPage}&client_id=${accessKey}`;
-
+export async function handler(event, context) {
     try {
+        const { query, page = 1, per_page = 10 } = JSON.parse(event.body);
+
+        const url = `https://api.unsplash.com/search/photos?query=${query}&page=${page}&per_page=${per_page}&client_id=${accessKey}`;
+
         const response = await fetch(url);
         const data = await response.json();
 
@@ -19,9 +18,11 @@ exports.handler = async function(event, context) {
             body: JSON.stringify(data),
         };
     } catch (error) {
+        console.error('Error:', error);
+
         return {
             statusCode: 500,
-            body: JSON.stringify({ error: 'Ошибка при запросе к Unsplash API' }),
+            body: JSON.stringify({ error: 'Error sending request to Unsplash API' }),
         };
     }
-};
+}
