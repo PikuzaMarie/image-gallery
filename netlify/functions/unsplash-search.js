@@ -1,10 +1,9 @@
-import fetch from 'node-fetch';
-import dotenv from 'dotenv';
-dotenv.config();
+const fetch = require('node-fetch');
+require('dotenv').config();
 
 const accessKey = process.env.UNSPLASH_ACCESS_KEY;
 
-export async function handler(event, context) {
+exports.handler = async function(event, context) {
     try {
         const { query, page = 1, per_page = 10 } = JSON.parse(event.body);
 
@@ -25,4 +24,4 @@ export async function handler(event, context) {
             body: JSON.stringify({ error: 'Error sending request to Unsplash API' }),
         };
     }
-}
+};
