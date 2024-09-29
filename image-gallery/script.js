@@ -8,21 +8,28 @@ searchBtn.addEventListener('click', function() {
 });
 
 function searchImages(container, query) {
-    const url = `/.netlify/functions/unsplash-search?=${query}`;
+    const url = `/.netlify/functions/unsplash-search`;
 
-    fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            container.innerHTML = ''; // Очистим контейнер перед новым поиском
+    fetch(url, {
+        method: 'POST',
+        body: JSON.stringify({ query }),
+        headers: { 'Content-Type': 'application/json' }
+    })
+    .then(response => response.json())
+    .then(data => {
+        container.innerHTML = '';
 
-            data.results.forEach (image => {
+        if (data.results && Array.isArray(data.results)) {
+            data.results.forEach(image => {
                 const img = document.createElement('img');
                 img.src = image.urls.small;
                 container.appendChild(img);
             });
-        })
-        .catch(error => {
-            console.error('Error fetching photos:', error);
-        });
+        } else {
+            console.error('No results found');
+        }
+    })
+    .catch(error => {
+        console.error('Error fetching photos:', error);
+    });
 }
-
