@@ -67,3 +67,14 @@ header {
 .search-bar button:focus {
     outline: none;
 }
+#imagesContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 10px;
+    padding: 40px;
+}
+img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
