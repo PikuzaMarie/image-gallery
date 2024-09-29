@@ -22,7 +22,7 @@ function searchImages(container, query) {
         if (data.results && Array.isArray(data.results)) {
             data.results.forEach(image => {
                 const img = document.createElement('img');
-                img.src = image.urls.small;
+                img.src = image.urls.regular;
                 container.appendChild(img);
             });
         } else {
