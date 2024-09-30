@@ -1,6 +1,7 @@
 const searchBtn = document.getElementById('searchBtn');
 const searchInput = document.getElementById('searchInput');
 const imagesContainer = document.getElementById('imagesContainer');
+const searchForm = document.getElementById('searchForm');
 
 searchBtn.addEventListener('click', function() {
     const query = searchInput.value;
