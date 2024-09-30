@@ -38,3 +38,9 @@ document.addEventListener('DOMContentLoaded', function() {
     searchInput.focus();
     searchImages(imagesContainer, 'autemn');
 })
+
+searchForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+    const query = searchInput.value;
+    searchImages(imagesContainer, query);
+});
