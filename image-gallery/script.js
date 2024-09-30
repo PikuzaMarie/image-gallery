@@ -33,3 +33,8 @@ function searchImages(container, query) {
         console.error('Error fetching photos:', error);
     });
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    searchInput.focus();
+    searchImages(imagesContainer, 'autemn');
+})
