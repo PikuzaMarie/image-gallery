@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --black: #232323;
+    --gray: #c9c9c9;
+    --white: #ffffff;
+    --border-color: #dfe1e5;
+    --input-bg: #ffffff;
+    --input-focus-shadow: rgba(32, 33, 36, 0.28);
+    --button-bg: #f8f9fa;
+    --button-hover-bg: #f1f3f4;
+    --button-text-color: #5f6368;
+}
+html, body {
+    height: 100%;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+main {
+    flex: 1;
+}
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    -webkit-box-shadow: 0px 8px 12px 0px rgba(201, 201, 201, 0.2);
+    -moz-box-shadow: 0px 8px 12px 0px rgba(201, 201, 201, 0.2);
+    box-shadow: 0px 8px 12px 0px rgba(201, 201, 201, 0.2);
+}
+
+.logo h1 {
+    font: bold 1.5rem/1.5 Helvetica, Arial, sans-serif;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-bar input[type="search"] {
+    width: 400px;
+    height: 40px;
+    padding: 0 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    background-color: var(--input-bg);
+    font-size: 16px;
+    box-shadow: none;
+    outline: none;
+    transition: box-shadow 0.3s ease;
+}
+
+.search-bar input[type="search"]:focus {
+    box-shadow: 0 1px 6px var(--input-focus-shadow);
+    border-color: rgba(223, 225, 229, 0);
+}
+
+.search-bar button {
+    height: 42px;
+    margin-left: 10px;
+    padding: 0 16px;
+    border: 1px solid var(--border-color);
+    background-color: var(--button-bg);
+    border-radius: 24px;
+    font-size: 14px;
+    color: var(--button-text-color);
+    cursor: pointer;
+    transition: background-color 0.2s ease, box-shadow 0.3s ease;
+}
+
+.search-bar button:hover {
+    background-color: var(--button-hover-bg);
+    box-shadow: 0 1px 6px var(--input-focus-shadow);
+}
+
+.search-bar button:focus {
+    outline: none;
+}
+
+#imagesContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 10px;
+    padding: 40px;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+footer {
+    width: 100%;
+    padding: 1rem 30rem;
+    background-color: var(--white);
+    filter: opacity(65%);
+    margin-top: auto; /* This pushes the footer to the bottom */
+}
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.container div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+#github-logo {
+    width: 43px;
+    height: 43px;
+}
+#rsschool-logo {
+    width: 86px;
+}
